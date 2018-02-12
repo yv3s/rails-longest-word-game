@@ -1,0 +1,23 @@
+<h3>Your score</h3>
+<p><%= @score %></p>
+
+<h1>Result</h1>
+<% if @word_in_grid == true && @word_exist == true %>
+  <% session[:score] += 1 %>
+  <p> <%= "Well done! Your new score is #{session[:score]}" %> </p>
+<% elsif @word_in_grid == false  %>
+  <p> <%= "Your attempt does not match the grid" %> </p>
+<% else %>
+  <p> <%= "Sorry your word is not an english word" %> </p>
+<% end %>
+
+<a href="/new">Play again</a>
+
+<!--   if word_in_grid?(attempt.upcase, grid) && word_exist?(attempt.upcase)
+    return { message: "well done", score: attempt.length * 10 / (end_time - start_time), time: end_time - start_time }
+  elsif word_in_grid?(attempt.upcase, grid) == false
+    return { message: "Your attempt is not in the grid", score: 0, time: end_time - start_time }
+  else
+    return { message: "Sorry your word is not an english word", score: 0, time: end_time - start_time }
+  end
+end -->
